@@ -51,8 +51,8 @@
 <li><dl class="first docutils">
 <dt>そもそもユニバーサル参照ってなに？</dt>
 <dd><div class="first last line-block">
-<div class="line">型推論のときのT&amp;&amp;　がユニバーサル参照</div>
-<div class="line">単なるT&amp;&amp;だと右辺値参照</div>
+<div class="line">型推論のときの <cite>T&amp;&amp;</cite> がユニバーサル参照</div>
+<div class="line">型推論以外の <cite>T&amp;&amp;</cite> だと右辺値参照</div>
 </div>
 </dd>
 </dl>
@@ -67,7 +67,7 @@
 <dt>p.4の「正誤表より補足」にある「上段落はまるごと削除します」とはどの行をさしてるの？</dt>
 <dd><div class="first last line-block">
 <div class="line">すぐ上の一段落「上例はすべて左辺値参照仮引数ですが～関係ありません」</div>
-<div class="line">これは、p.3のvoid f(T&amp; param);をvoid f(T&amp;&amp; param)にしても同じだよとこの行では言ってたが、そもそもこうするとユニバーサル参照になるから訂正するよ、という意味。</div>
+<div class="line">これは、p.3の <cite>void f(T&amp; param);</cite> を <cite>void f(T&amp;&amp; param);</cite> にしても同じだよとこの行では言ってたが、そもそもこうするとユニバーサル参照になるから訂正するよ、という意味。</div>
 </div>
 </dd>
 </dl>
