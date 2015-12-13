@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>項目1 &mdash; page 1.0.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="page 1.0.0 ドキュメント" href="../index.html" />
+    <link rel="up" title="Moden Effective C++読書会ノート" href="index.html" />
+    <link rel="prev" title="Moden Effective C++読書会ノート" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>項目1<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>型推論のときのT&amp;&amp;　がユニバーサル参照
+単なるT&amp;&amp;だと右辺値参照</p>
+<p>ユニバーサル参照という名前は企画書にはない。
+論文にそう書かれていた</p>
+<p>正誤表より補足
+P3のvoid f(T&amp; param);
+をvoid f(T&amp;&amp; param)にしても同じだよとこの行では言ってたが、
+そもそもこうするとユニバーサル参照になるから訂正するよ。</p>
+<p>rvalueにしたい場合は面倒な処理が必要。
+→したい人っているの？
+　→デバッグ目的</p>
+<p>右辺値とは
+　メモリ上に存在するかどうか
+　moveセマンティクスのために右辺値参照ができた。</p>
+<p>　enumも右辺値
+　xvalueメモリ上にあるがアドレスをとってはいけないもの→関数の戻り値
+　prvalueとxvalueをまとめてこの本ではrvalueといっている。</p>
+<p>「この構文には毒もあるのです」→原文「毒があるように見える」
+　毒とは何をさしていたんだろう？</p>
+<p>ParamTypeはTに関する何か</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Moden Effective C++読書会ノート</a><ul>
+      <li>Previous: <a href="index.html" title="前の章へ">Moden Effective C++読書会ノート</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/emcpp/151130.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, zbdk.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/emcpp/151130.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

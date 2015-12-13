@@ -1,0 +1,17 @@
+Moden Effective C++読書会ノート
+===============================
+このページは `大阪C++読書会 <http://cpp-osaka.connpass.com/>`_ で読んでいるModen Effective C++の読書ノートです。
+
+.. image:: emcpp.jpeg
+    :height: 200
+
+- https://www.oreilly.co.jp/books/9784873117362/
+
+
+Contents:
+
+.. toctree::
+    :maxdepth: 1
+
+    151130
+
