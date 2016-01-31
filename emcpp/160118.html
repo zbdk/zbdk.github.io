@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Effective Modern C++読書会 vol.3 &mdash; page 1.0.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="page 1.0.0 ドキュメント" href="../index.html" />
+    <link rel="up" title="Moden Effective C++読書会ノート" href="index.html" />
+    <link rel="prev" title="Effective Modern C++読書会 vol.2" href="151214.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="effective-modern-c-vol-3">
+<h1>Effective Modern C++読書会 vol.3<a class="headerlink" href="#effective-modern-c-vol-3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>場所：フェンリル株式会社</li>
+<li>日時：2016/01/18 19:30～21:00</li>
+<li><a class="reference external" href="http://cpp-osaka.connpass.com/event/25468/">http://cpp-osaka.connpass.com/event/25468/</a></li>
+</ul>
+<div class="section" id="id1">
+<h2>項目3<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>pp.22～23にかけて、「()」以外に他にはまり方は存在する？</dt>
+<dd><p class="first last">decltype(auto)ではまる可能性があるのは()を使った場合のみ。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>decltype(auto)に「&amp;,*」をつけられない</dt>
+<dd><p class="first last">つけたければautoを使う。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>項目4<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">typeid(x).name()が出力する文字列の決まりは規格書にはない</p>
+</li>
+<li><p class="first">deplicatedでwarningを出せば人間に読める形で型が出力される。(printfデバッグ的な)</p>
+</li>
+<li><dl class="first docutils">
+<dt>ラムダ式の型はコンパイラにしかわからない。</dt>
+<dd><p class="first last">ラムダ式をtypid()に入れると訳の分からない文字列が返ってくる。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>typeidに寿命はない</dt>
+<dd></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>functionとautoは同じではない。</dt>
+<dd><p class="first last">functionの方がメモリ的にオーバーヘッドが生じる</p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li><dl class="first docutils">
+<dt>[]なにもキャプチャしないラムダ式は関数ポインタに代入できる。</dt>
+<dd><p class="first last">Cのコールバックをラムダで書くこともできる。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>項目5<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>autoで宣言した変数は必ず初期化される</dt>
+<dd><p class="first last">初期化したくない場合はautoは使えない</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>お悩み雑談室<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>ASSERTに副作用のある関数が含まれていることを検知する方法はある？</dt>
+<dd><p class="first">→難しい</p>
+<ul class="last">
+<li><dl class="first docutils">
+<dt>pure attributeが提案中</dt>
+<dd><div class="first last line-block">
+<div class="line">副作用のあることをやっていたら怒り出す。</div>
+<div class="line">でも引数に副作用がある場合は検知できない…</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Effective Modern C++読書会 vol.3</a><ul>
+<li><a class="reference internal" href="#id1">項目3</a></li>
+<li><a class="reference internal" href="#id2">項目4</a></li>
+<li><a class="reference internal" href="#id3">項目5</a></li>
+<li><a class="reference internal" href="#id4">お悩み雑談室</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Moden Effective C++読書会ノート</a><ul>
+      <li>Previous: <a href="151214.html" title="前の章へ">Effective Modern C++読書会 vol.2</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/emcpp/160118.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, zbdk.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/emcpp/160118.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

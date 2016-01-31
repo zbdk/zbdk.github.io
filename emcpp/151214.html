@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Effective Modern C++読書会 vol.2 &mdash; page 1.0.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="page 1.0.0 ドキュメント" href="../index.html" />
+    <link rel="up" title="Moden Effective C++読書会ノート" href="index.html" />
+    <link rel="next" title="Effective Modern C++読書会 vol.3" href="160118.html" />
+    <link rel="prev" title="Effective Modern C++読書会 vol.1" href="151130.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="effective-modern-c-vol-2">
+<h1>Effective Modern C++読書会 vol.2<a class="headerlink" href="#effective-modern-c-vol-2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>場所：フェンリル株式会社</li>
+<li>日時：2015/12/14 19:30～21:00</li>
+<li><a class="reference external" href="http://cpp-osaka.connpass.com/event/23940/">http://cpp-osaka.connpass.com/event/23940/</a></li>
+</ul>
+<div class="section" id="id1">
+<h2>項目2<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>なんで初期化の統一記法が追加された？</dt>
+<dd><div class="first last line-block">
+<div class="line">主にvectorの初期化をどうにかするために導入された。</div>
+<div class="line">push_backをどうにかするため。</div>
+<div class="line">std::arrayの初期化には使えない。</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li><dl class="first docutils">
+<dt>変数x5は型変換しない</dt>
+<dd><p class="first">数値ならいいかもしれないけどユーザー定義のものが暗黙のうちに変換されるとイヤなことしかないから全て変換させない。</p>
+<p class="last">x5はこんな形でもコンパイルを通させることもできる</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>hoge x = {1, 2.0, &quot;abc&quot;}; // 引数3つのコンストラクタ
+</pre></div>
+</div>
+<p>↓にするとどんなものも通っちゃう</p>
+<div class="highlight-python"><div class="highlight"><pre>template(typename ... Ts&gt;
+hoge(Ts ... xs) {
+  ...
+}
+
+auto x = hoge{1,2,3}
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>int hoge(fuga(x));
+</pre></div>
+</div>
+<p>とか書くと関数宣言とみなされてしまう。</p>
+<div class="highlight-python"><div class="highlight"><pre>int hoge{fuga(x)};
+</pre></div>
+</div>
+<p>と書くと回避できる。波かっこの活躍するケース！</p>
+<ul>
+<li><dl class="first docutils">
+<dt>p.16、createInitList()の返り型がinitializer_list&lt;int&gt;ならコンパイルが通る。</dt>
+<dd><p class="first last">initializer_list&lt;T&gt;とかではダメ。</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">テンプレートでは型の情報がないと何も推論してくれない</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>項目3<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>decltypeとは</dt>
+<dd><div class="first last line-block">
+<div class="line">これまでの推論では参照性が外れていたが、参照が外れなくなる？</div>
+<div class="line">→名前に関してはそう。式に関しても概ねそう。</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>decltype(b) a; // bと同じ型
+decltype(f(b)) a; // fの返値
+decltype((b)) a; // (b)は式なのでlvalue
+
+int &amp;&amp; b = ...;
+decltype(b);// rvalue
+decltype((b));// lvalue
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>&#8220;decltype(auto)&#8221;という一つのキーワードとして考えればいい。識別子になる</dt>
+<dd>良くある使い方→型を右から左に受け流す場合。</dd>
+</dl>
+<dl class="docutils">
+<dt>std::forward(p.21周辺)</dt>
+<dd><div class="first last line-block">
+<div class="line">cがrvalueの変数として定義されている場合はrvalueとして扱われ、</div>
+<div class="line">cがlvalueの変数として定義されている場合はlvalueとして扱う。</div>
+</div>
+</dd>
+<dt>std::forward使わないと</dt>
+<dd>cがrvalueを受けていてもc自体はlvalue返る型はlvalueとなってしまう</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>// オーバーロードで適切な方が呼ばれる
+abc&amp;&amp; f(hoge) &amp;&amp;; // rvalueを受けてrvalueを返す
+ 勝手にmoveが走るようになる
+abc&amp; f(hoge) &amp;; // lvalue
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>次回</dt>
+<dd>p.22後半から</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Effective Modern C++読書会 vol.2</a><ul>
+<li><a class="reference internal" href="#id1">項目2</a></li>
+<li><a class="reference internal" href="#id2">項目3</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Moden Effective C++読書会ノート</a><ul>
+      <li>Previous: <a href="151130.html" title="前の章へ">Effective Modern C++読書会 vol.1</a></li>
+      <li>Next: <a href="160118.html" title="次の章へ">Effective Modern C++読書会 vol.3</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/emcpp/151214.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, zbdk.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/emcpp/151214.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
